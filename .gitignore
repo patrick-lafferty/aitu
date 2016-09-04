@@ -1,0 +1,11 @@
+build/
+cmake/
+
+#vscode stuff
+*.DB
+*.DB-shm
+*.DB-wal
+launch.json
+tasks.json
+
+*.com
