@@ -38,15 +38,19 @@ add_executable(aitu
 
 target_compile_options(aitu PUBLIC -std=c++1z -stdlib=libstdc++ -Wall)
 
-add_executable(aitu_test 	
-	tests/catch_main.cpp
-	tests/math.cpp
-	$<TARGET_OBJECTS:aitu_objs>
-)
+IF (BUILD_TESTING)
 
-target_compile_options(aitu_test PUBLIC -std=c++1z -stdlib=libstdc++ -Wall)
+	add_executable(aitu_test 	
+		tests/catch_main.cpp
+		tests/math.cpp
+		$<TARGET_OBJECTS:aitu_objs>
+	)
 
-target_link_libraries(aitu_test Catch)
+	target_compile_options(aitu_test PUBLIC -std=c++1z -stdlib=libstdc++ -Wall)
 
-enable_testing()
-add_test(NAME AituTest COMMAND aitu_test)
+	target_link_libraries(aitu_test Catch)
+
+	enable_testing()
+	add_test(NAME AituTest COMMAND aitu_test)
+
+ENDIF(BUILD_TESTING)
