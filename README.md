@@ -1,4 +1,4 @@
-# aitu
+# aitu [![Build Status](https://travis-ci.org/patrick-lafferty/aitu.svg?branch=master)](https://travis-ci.org/patrick-lafferty/aitu) [![Packagist](https://img.shields.io/packagist/l/doctrine/orm.svg?maxAge=2592000)]()
 aitu is the AI library from my game Wooden Sphere that uses hierarchical task networks and utility planners. By defining Tasks, giving tasks Considerations, and defining world state for an AI character, that character can then decide on what it wants to do and forms a plan on how to achieve that.
 
 #Building
