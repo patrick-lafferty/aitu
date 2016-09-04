@@ -25,7 +25,7 @@ SOFTWARE.
 #pragma once
 
 #include "EnvironmentQueries.h"
-#include "Math.h"
+#include "../Math.h"
 #include <vector>
 #include <algorithm>
 #include "../UE_Replacements.h"

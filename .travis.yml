@@ -1,18 +1,29 @@
-language: cpp
-compiler:
-    -clang
-    -gcc
+language: bash
+compiler: clang
 
-#taken from https://github.com/travis-ci/travis-ci/issues/4631
 addons:
-  apt:
-    sources:
-      - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
-    packages:
-      - cmake
-      - cmake-data
+    apt:
+        sources:
+        - george-edison55-precise-backports # cmake 3.2.3 / doxygen 1.8.3
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-precise-3.8
+                  
+        packages:
+        - cmake
+        - cmake-data
+        - clang-3.8
+        - g++-6
+        
+
+install:
+    #- export CC=clang-3.8
+    #- export CXX=clang++-3.8 
+    - export CC=gcc-6
+    - export CXX=g++-6
 
 script:
-   - mkdir build
-   - cd build
-   - cmake .. && make
+    - gcc-6 -v
+    - gcc-6 -print-search-dirs
+    - mkdir build
+    - cd build
+    - cmake .. && make

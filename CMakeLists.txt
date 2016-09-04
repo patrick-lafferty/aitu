@@ -1,9 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(CMAKE_C_COMPILER "clang")
-set(CMAKE_CXX_COMPILER "clang++")
-set(CMAKE_EXE_LINKER_FLAGS "ld")
-
 project(aitu)
 
 set(CATCH_INCLUDE_DIR "catch" CACHE PATH "path to include folder for Catch (github.com/philsquared/Catch)")
@@ -29,14 +25,14 @@ add_library(aitu_objs OBJECT
 	HierarchicalTaskNetworkComponent.cpp
 )
 
-target_compile_options(aitu_objs PUBLIC -std=c++1z -stdlib=libstdc++ -Wall)
+target_compile_options(aitu_objs PUBLIC -std=c++1z -Wall)
 
 add_executable(aitu
 	main.cpp
 	$<TARGET_OBJECTS:aitu_objs>
 )
 
-target_compile_options(aitu PUBLIC -std=c++1z -stdlib=libstdc++ -Wall)
+target_compile_options(aitu PUBLIC -std=c++1z -Wall)
 
 IF (BUILD_TESTING)
 
@@ -46,7 +42,7 @@ IF (BUILD_TESTING)
 		$<TARGET_OBJECTS:aitu_objs>
 	)
 
-	target_compile_options(aitu_test PUBLIC -std=c++1z -stdlib=libstdc++ -Wall)
+	target_compile_options(aitu_test PUBLIC -std=c++1z -Wall)
 
 	target_link_libraries(aitu_test Catch)
 
