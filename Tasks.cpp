@@ -516,7 +516,7 @@ namespace AI
 			auto noiseDisturbance = state.facts.vectors[ConsumableFact::NoiseDisturbance];
 			noiseDisturbance.value.z = position.z;
 
-			int locusId = state.facts.values[ConsumableFact::NoiseDisturbance].value;
+			unsigned int locusId = state.facts.values[ConsumableFact::NoiseDisturbance].value;
 			auto it = std::find_if(begin(state.memory.focusLocus), end(state.memory.focusLocus), 
 				[=](const FocusLocus& f){return f.id == locusId;});
 
@@ -563,7 +563,7 @@ namespace AI
 		moveToSound.setup = [=](Task& task, WorldState& state, const WorldQuerier&)
 		{
 			auto currentPosition = state.current.vectors[WorldStateIdentifier::CurrentPosition];
-			int locusId = state.facts.values[ConsumableFact::Lead].value;
+			unsigned int locusId = state.facts.values[ConsumableFact::Lead].value;
 			auto it = std::find_if(begin(state.memory.focusLocus), end(state.memory.focusLocus), 
 				[=](const FocusLocus& f){return f.id == locusId;});
 

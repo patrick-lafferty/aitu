@@ -22,8 +22,6 @@ install:
     - export CXX=g++-6
 
 script:
-    - gcc-6 -v
-    - gcc-6 -print-search-dirs
     - mkdir build
     - cd build
     - cmake .. && make

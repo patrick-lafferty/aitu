@@ -108,7 +108,7 @@ void HierarchicalTaskNetworkComponent::updateHUD_PlanPath()
 {
 	auto& tasks = getWorld()->getAuthGameMode()->getAvailableTasks();
 
-	for (int i = 0; i < 5; i++)
+	for (std::size_t i = 0; i < 5u; i++)
 	{
 		if (i < planner.plan.planPath.size())
 		{
@@ -413,7 +413,7 @@ void HierarchicalTaskNetworkComponent::addEngramToLocus(Engram& engram)
 	if (!state.memory.focusLocus.empty())
 	{	
 		bool foundLocus = false;
-		int minCount = 0;
+		unsigned int minCount = 0;
 
 		int id = 0;
 		for(auto& locus : state.memory.focusLocus)
@@ -531,7 +531,7 @@ void HierarchicalTaskNetworkComponent::recalculateLoci(std::vector<int> updatedL
 		//otherwise, its path
 		auto& locus = state.memory.focusLocus[id];
 		auto& origin = locus.engrams[0];
-		int pastDistanceCount = 0;
+		unsigned int pastDistanceCount = 0;
 		float maxDistance = maxDistanceToOrigin;
 		float averageIntensity = 0.f;
 		float maxIntensity = 0.f;
@@ -569,7 +569,7 @@ void HierarchicalTaskNetworkComponent::recalculateLoci(std::vector<int> updatedL
 		averageIntensity /= locus.engrams.size();
 		averageSpeed /= (locus.engrams.size() - 1);
 
-		if (pastDistanceCount * 2 >= locus.engrams.size())
+		if (pastDistanceCount * 2u >= locus.engrams.size())
 		{
 			locus.type = FocusLocusType::Path;
 			locus.currentImportance = averageIntensity + averageSpeed;
@@ -634,7 +634,7 @@ void HierarchicalTaskNetworkComponent::produceFacts()
 	}
 	else
 	{
-		int oldId = roundToInt(factValue.value);
+		unsigned int oldId = roundToInt(factValue.value);
 		auto it = std::find_if(begin(state.memory.focusLocus), end(state.memory.focusLocus), 
 			[=](const FocusLocus& f) {return f.id == oldId;});
 

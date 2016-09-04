@@ -106,7 +106,7 @@ namespace AI
 		//A locus' engrams are sensitive to their order, so use a slower method to handle that case
 		if (maintainOrder)
 		{
-			for (int i = 0; i < engrams.size(); i++)
+			for (int i = 0; i < static_cast<int>(engrams.size()); i++)
 			{
 				if (engrams[i].age > MaxEngramAge)
 				{
@@ -122,7 +122,7 @@ namespace AI
 			last engram to do a more efficient pop_back
 			*/
 			std::vector<int> oldIds;
-			for(int i = 0; i < engrams.size(); i++)
+			for(int i = 0, size = engrams.size(); i < size; i++)
 			{
 				if (engrams[i].age > MaxEngramAge
 					&& focus != i)
